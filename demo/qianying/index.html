@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel=stylesheet href="css/style.css">
+</head>
+<body>
+<div class="ext_plugin">
+    <div class="tit">
+        <div class="fl">应用推荐</div>
+        <div class="fr">
+            <input type="checkbox" name="checkedAll" id="checkedAll" value=""/>
+            <label for="checkedAll">全选</label>
+            <span id="change">换一换</span>
+        </div>
+    </div>
+    <ul class="list" id="list_data">
+       <!--  <li>
+            <img src="images/1.png"/>
+
+            <p><input type="checkbox" name="ExtPlugin" id="adblock" value=""/><label for="adblock">极品去广告</label></p>
+
+            <div class="memo">强大的广告过滤工具</div>
+        </li> -->
+       
+    </ul>
+
+    <!--已下载推荐应用-->
+    <!--<div class="tips"><p>您已下载全部应用推荐</p><p>可进入应用中心下载更多</p></div>-->
+
+
+    <div class="foot">
+        <div class="fl">
+            <a href="#">应用中心</a>
+        </div>
+        <div class="fr">
+            <a href="#">一键安装</a>
+        </div>
+    </div>
+</div>
+</body>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/template-native.js"></script>
+<script type="text/template" id='template'>
+        <% for(var i =0;i<items.length;i++){%> 
+                <li class='item'>
+                    <img src="<%=items[i].icon%>" alt="">
+                    <p><input type="checkbox" name="ExtPlugin" id="adblock" value=""/><label for="adblock"><%=items[i].name%></label></p>
+                    <div class="memo">过滤去除广告</div>
+                </li>
+        <%}%>
+</script>
+<script>
+    var MaxADList = 6; 
+    var position = -1;
+        //屏蔽右键
+    $('body').on('contextmenu', function(e){return false;});
+    //屏蔽a标签鼠标拖动
+    $('body a').attr('draggable',false);
+    
+    //简介
+  
+    $('.list').on('hover','li img',function(){
+        $(this).siblings('.memo').show();   
+    })
+
+    $('.memo,.list').mouseleave(function(){
+        $('.memo').hide();
+    })
+    
+    //默认全选
+    $("input[name='ExtPlugin']").attr('checked', true)
+    
+    //全选
+    $('#checkedAll').click(function(){
+        var scheck = $(this).is(':checked');
+        if(scheck){
+            $("input[name='ExtPlugin']").attr('checked', true)
+        }else{
+            $("input[name='ExtPlugin']").attr('checked', false)
+        }
+    })
+    $('#change').click(function(){
+            $.ajax({
+            url:'http://ext.iqying.com/index.php/api/default/getrecommlist',
+            dataType:'jsonp',
+            data:{VAR_JSONP_HANDLER:'jsonpcallback'},
+            jsonpCallback:'jsonpcallback',
+            success:function(data){
+                // 包装成对象
+                    var obj = {
+                        items:data
+                    }
+                    console.log(obj)
+                    // 添加到 页面上
+                    if(position == -1){
+                        obj.items.length = MaxADList;
+                        position = MaxADList - 1;
+                    }else if(obj.items.length - position > MaxADList){
+                        for (var i = 0; i < MaxADList; i++) {
+                            obj.items.shift();
+                        }
+                        obj.items.length = MaxADList;
+                        position += MaxADList;
+                    }else{
+                        for (var i = 0; i <= position; i++) {
+                            obj.items.shift();
+                        }
+                        position = -1;
+                    } 
+                    console.log(obj)
+                    console.log('position=' + position)
+                    $('.list').html(template('template',obj));
+            }
+        })
+    })
+    $('#change').click();
+</script>
+</html>

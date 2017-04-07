@@ -1,0 +1,178 @@
+/* 初始化 */
+blockquote,body,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,dd,ol,p,pre,td,textarea,th,dl,ul,li,ol{margin:0;padding:0}
+body,button,input,select,textarea{font:14px/1 "Microsoft YaHei","微软雅黑","Microsoft JhengHei","STHeiti,MingLiu";outline: none;}
+h1,h2,h3,h4,h5,h6{font-size:100%}
+address,cite,dfn,em,var{font-style:normal}
+code,kbd,pre,samp{font-family:courier new,courier,monospace}
+small{font-size:12px}
+ol,dl,ul,li{list-style:none}
+a{text-decoration:none; outline: none;}
+a:hover{text-decoration:underline; outline: none;}
+sup{vertical-align:text-top}
+sub{vertical-align:text-bottom}
+legend{color:#000}
+fieldset,img{border:0}
+button,input,select,textarea{font-size:100%}
+table{border-collapse:collapse;border-spacing:0}
+article,aside,audio,details,figcaption,figure,footer,header,mark,menu,nav,section,summary,time,video{display:block;margin:0;padding:0}
+.clearfix:after{visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0}
+.clearfix{display:inline-table;*zoom: 1;}
+* html .clearfix{height:1%}
+.clearfix{display:block}
+a{text-decoration:none; color: #666;}
+a:hover{text-decoration:none; color: #45c5ff;}
+body{color: #666;-webkit-user-select:none;user-select:none;}
+.fl{float:left}
+.fr{float:right}
+
+.ext_plugin{
+	width: 344px;
+}
+.tit{
+	height: 40px;
+	line-height: 40px;
+	overflow: hidden;
+	border-bottom: 1px solid #efefef;
+}
+.tit .fl{
+	font-size: 14px;	
+	padding-left: 20px;
+	color: #333;
+}
+.tit .fr{
+	padding-right: 20px;	
+}
+.tit .fr span{
+	margin-left: 30px;
+	padding-left: 20px;
+	background: url(../images/icon_change.png) left center no-repeat;
+	cursor: pointer;
+	color: #00a0e9;
+}
+.tit .fr span:hover{	
+	background: url(../images/icon_changeh.png) left center no-repeat;
+	color: #45c5ff;
+}
+input[type="checkbox"]{
+	width: 0;
+	height: 0;
+}
+input[type="checkbox"]+label{
+	background: url(../images/icon_check.jpg) left 5px no-repeat;
+	padding-left: 18px;
+}
+input[type="checkbox"]:checked+label{
+	background: url(../images/icon_checked.jpg) left 5px no-repeat;
+	padding-left: 18px;
+}
+
+.list{
+	overflow: hidden;
+	background: #f7f7f7;
+}
+.list li{
+	position: relative;
+	width: 80px;
+	padding: 10px 17px 20px;
+	border-right: 1px solid #efefef;
+	border-bottom: 1px solid #efefef;
+	float: left;
+}
+.list li:nth-child(3n){
+	border-right: none;
+}
+.list li img{
+    width: 45px;
+    height: 45px;
+   margin:8px 0 12px 20px;
+
+}
+.list li p{
+	overflow: hidden;
+	height: 22px;
+	line-height: 22px;
+}
+.list li .memo{
+	display: none;
+	position: absolute;
+	top: 10px;
+	left: 17px;
+	width: 80px;
+	height: 52px;
+	background: rgba(0,0,0,.7);
+	color: #fff;
+	text-align: center;
+	line-height: 22px;
+	padding-top: 8px;
+	cursor:default;
+}
+.list li .installer{
+	position: absolute;
+	top: 10px;
+	left: 17px;
+	width: 80px;
+	height: 60px;
+	background: rgba(0,0,0,.7);
+	color: #fff;
+	text-align: center;
+	line-height: 22px;
+	cursor:default;
+	line-height: 60px;
+}
+.foot{
+	height: 50px;
+	line-height: 50px;
+	padding: 0 20px;
+}
+.foot .fl a{
+	background: url(../images/icon_setting.png) left center no-repeat;
+	padding-left: 20px;
+}
+.foot .fl a:hover{
+	background: url(../images/icon_settingh.png) left center no-repeat;
+	color: #00a0e9;
+}
+.foot .fr a{
+	display: inline-block;
+	width: 83px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	color: #00A0E9;
+	border: 1px solid #00a0e9;
+	border-radius: 3px;
+}
+.foot .fr a:hover{
+	color: #46c5ff;
+	border: 1px solid #46c5ff;
+}
+.tips{
+	text-align: center;
+	line-height: 24px;
+	padding: 20px 0;
+	background: #f7f7f7;
+	font-size: 16px;
+}
+.tips p{
+	padding: 3px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
